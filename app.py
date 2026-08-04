@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import pickle
+import joblib
 
 # -----------------------------------
 # Page Configuration
@@ -17,12 +17,8 @@ st.set_page_config(
 # -----------------------------------
 @st.cache_resource
 def load_model():
-    with open("capstone_rf_model_v1.pkl", "rb") as f:
-        model = pickle.load(f)
-
-    with open("capstone_label_encoders_v1.pkl", "rb") as f:
-        encoders = pickle.load(f)
-
+    model = joblib.load("capstone_rf_model_v1.joblib")
+    encoders = joblib.load("capstone_label_encoders_v1.joblib")
     return model, encoders
 
 
