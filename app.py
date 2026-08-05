@@ -120,7 +120,7 @@ with col2:
     tech_comfort = st.slider(
         "Tech Comfort Score",
         min_value=1,
-        max_value=10,
+        max_value=5,
         value=5
     )
 
